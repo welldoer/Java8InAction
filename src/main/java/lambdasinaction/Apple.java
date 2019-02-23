@@ -1,4 +1,4 @@
-package java8inaction;
+package lambdasinaction;
 
 public class Apple {
 	

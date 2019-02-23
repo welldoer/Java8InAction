@@ -1,4 +1,4 @@
-package java8inaction;
+package lambdasinaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,10 @@ import java.util.function.Predicate;
 
 public class FilteringApples {
 
+	public FilteringApples() {
+		throw new IllegalStateException( "Invalid instance!" );
+	}
+	
 	public static List<Apple> filterApples( List<Apple> apples, Predicate<Apple> p ) {
 		List<Apple> result = new ArrayList<>();
 		for( Apple apple : apples ) {
