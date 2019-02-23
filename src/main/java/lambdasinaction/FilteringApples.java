@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 
 public class FilteringApples {
 
-	public FilteringApples() {
+	FilteringApples() {
 		throw new IllegalStateException( "Invalid instance!" );
 	}
 	
@@ -22,6 +22,10 @@ public class FilteringApples {
 	
 	public static boolean isGreenApple( Apple apple ) {
 		return apple.getColor().equals( "green" );
+	}
+
+	public static boolean isHeavyApple( Apple apple ) {
+		return apple.getWeight() > 150;
 	}
 
 }

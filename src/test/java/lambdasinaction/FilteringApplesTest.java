@@ -40,9 +40,15 @@ public class FilteringApplesTest {
 	}
 	
 	@Test
-	public void test() {
+	public void filterGreenAppleTest() {
 		List<Apple> greenApples = FilteringApples.filterApples( apples, FilteringApples::isGreenApple );
 		assertThat( greenApples ).isEqualTo( Arrays.asList( apple__80_green, apple_155_green ) );
+	}
+
+	@Test
+	public void filterHeavyAppleTest() {
+		List<Apple> greenApples = FilteringApples.filterApples( apples, FilteringApples::isHeavyApple );
+		assertThat( greenApples ).isEqualTo( Arrays.asList( apple_155_green ) );
 	}
 
 }
