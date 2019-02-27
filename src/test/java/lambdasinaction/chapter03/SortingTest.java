@@ -31,4 +31,11 @@ public class SortingTest {
 		assertThat( apples ).isEqualTo( Arrays.asList( apple__80_green, apple_120_red__, apple_155_green ) );
 	}
 
+	@Test
+	public void testLambda() {
+		Apple apple__30_yellow = new Apple( 30, "yellow");
+		apples.set( 1, apple__30_yellow );
+		apples.sort( ( a1, a2 ) -> a1.getWeight().compareTo( a2.getWeight() ) );
+		assertThat( apples ).isEqualTo( Arrays.asList( apple__30_yellow, apple__80_green , apple_120_red__ ) );
+	}
 }
