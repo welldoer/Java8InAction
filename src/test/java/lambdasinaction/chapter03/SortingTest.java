@@ -2,6 +2,8 @@ package lambdasinaction.chapter03;
 
 import static org.assertj.core.api.Assertions.*;
 
+import static java.util.Comparator.comparing;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,5 +39,13 @@ public class SortingTest {
 		apples.set( 1, apple__30_yellow );
 		apples.sort( ( a1, a2 ) -> a1.getWeight().compareTo( a2.getWeight() ) );
 		assertThat( apples ).isEqualTo( Arrays.asList( apple__30_yellow, apple__80_green , apple_120_red__ ) );
+	}
+	
+	@Test
+	public void testMethod() {
+		Apple apple__90_yellow = new Apple( 90, "yellow");
+		apples.set( 1, apple__90_yellow );
+		apples.sort( comparing( Apple::getWeight ) );
+		assertThat( apples ).isEqualTo( Arrays.asList( apple__80_green , apple__90_yellow, apple_120_red__ ) );
 	}
 }
