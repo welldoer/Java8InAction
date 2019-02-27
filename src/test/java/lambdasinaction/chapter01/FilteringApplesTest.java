@@ -1,4 +1,4 @@
-package lambdasinaction;
+package lambdasinaction.chapter01;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import lambdasinaction.Apple;
-import lambdasinaction.FilteringApples;
+import lambdasinaction.chapter01.FilteringApples;
 
 public class FilteringApplesTest {
 	
@@ -46,9 +46,27 @@ public class FilteringApplesTest {
 	}
 
 	@Test
+	public void rapidlyFilterGreenAppleTest() {
+		List<Apple> greenApples = FilteringApples.filterApples( apples, ( Apple apple ) -> apple.getColor().equals( "green" ) );
+		assertThat( greenApples ).isEqualTo( Arrays.asList( apple__80_green, apple_155_green ) );
+	}
+
+	@Test
 	public void filterHeavyAppleTest() {
 		List<Apple> greenApples = FilteringApples.filterApples( apples, FilteringApples::isHeavyApple );
 		assertThat( greenApples ).isEqualTo( Arrays.asList( apple_155_green ) );
+	}
+
+	@Test
+	public void rapidlyFilterHeavyAppleTest() {
+		List<Apple> greenApples = FilteringApples.filterApples( apples, ( Apple apple ) -> apple.getWeight() > 150 );
+		assertThat( greenApples ).isEqualTo( Arrays.asList( apple_155_green ) );
+	}
+
+	@Test
+	public void filterSpecialAppleTest() {
+		List<Apple> greenApples = FilteringApples.filterApples( apples, ( Apple apple ) -> apple.getWeight() < 80 || apple.getColor().equals( "brown" ) );
+		assertThat( greenApples ).isEqualTo( Arrays.asList( ) );
 	}
 
 }
